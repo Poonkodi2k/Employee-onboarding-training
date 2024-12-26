@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Preferences</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f5f5;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+      gap: 20px;
+      background: #fff;
+      border-radius: 12px;
+      width: 100vw;
+      height: 100vh;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: #002347;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .sidebar ul li img {
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #ffd85b;
+      font-weight: bold;
+    }
+
+    .sidebar ul li a:hover {
+      color: #fff;
+    }
+
+    .logout {
+      text-align: center;
+      padding: 10px;
+      background: #ffd85b;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .logout:hover {
+      background: #ffbf00;
+    }
+
+    /* Account Preferences */
+    .preferences {
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .preferences h2 {
+      font-size: 24px;
+      color: #002347;
+      margin-bottom: 20px;
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: url('boy2.jpg') no-repeat center/cover;
+      border: 3px solid #ffd85b;
+      margin-right: 20px;
+    }
+
+    .profile-info {
+      font-size: 18px;
+    }
+
+    .profile-info h3 {
+      margin: 0 0 5px;
+      color: #002347;
+    }
+
+    .profile-info p {
+      margin: 0;
+      color: #555;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .form-group input:focus {
+      border-color: #002347;
+      outline: none;
+    }
+
+    .preferences .save-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #002347;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .preferences .save-btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div>
+        <h1>TechNest</h1>
+        <ul>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home"> <a href="welcome.html">Home</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/book.png" alt="Guides"> <a href="tra.html">Guides</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/graduation-cap.png" alt="Courses"> <a href="lern.html">Courses</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/conference-call.png" alt="People"> <a href="people.html">People</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/user.png" alt="You"> <a href="#">You</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Account Preferences -->
+    <div class="preferences">
+      <h2>Account Preferences</h2>
+      <div class="profile-header">
+        <div class="profile-photo"></div>
+        <div class="profile-info">
+          <h3>Rish adhvik </h3>
+          <p>@Rish adhvik</p>
+        </div>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <label for="email">Work Email</label>
+          <input type="email" id="email" value="rishadhvik@technest.io">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="text" id="phone" value="+00 111 222 333 444">
+        </div>
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" value="1987-12-29">
+        </div>
+        <div class="form-group">
+          <label for="address">Home Address</label>
+          <input type="text" id="address" value="12/A Street Name, Almeria, Spain">
+        </div>
+        <div class="form-group">
+          <label for="languages">Spoken Languages</label>
+          <input type="text" id="languages" value="English, Spanish, French,Telugu">
+        </div>
+        <div class="form-group">
+          <label for="allergies">Allergies</label>
+          <input type="text" id="allergies" value="Gluten">
+        </div><center>
+        <button class="save-btn" type="button">Done</button></center>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

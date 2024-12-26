@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR Welcome Dashboard</title>
+  <style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f5f5;
+    min-height: 100vh;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 1.5fr;
+    gap: 20px;
+    background: #fff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 1600px;
+    height: 100vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    background: #002347;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sidebar h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .sidebar ul {
+    list-style: none;
+  }
+
+  .sidebar ul li {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar ul li img {
+    width: 20px;
+    margin-right: 10px;
+  }
+
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #ffd85b;
+    font-weight: bold;
+  }
+
+  .sidebar ul li a:hover {
+    color: #fff;
+  }
+
+  .logout {
+    text-align: center;
+    padding: 10px;
+    background: #ffd85b;
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .logout:hover {
+    background: #ffbf00;
+  }
+
+  /* Main Content */
+  .main-content {
+    padding: 40px;
+  }
+
+  .main-content h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .main-content p {
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .profile-setup {
+    background: #002347;
+    color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .profile-picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+  }
+
+  .profile-picture img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #ffd85b;
+    margin-bottom: 15px;
+  }
+
+  .profile-picture button {
+    padding: 10px 20px;
+    background: #ffd85b;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .profile-picture button:hover {
+    background: #ffbf00;
+  }
+
+  .profile-inputs {
+    flex-grow: 1;
+  }
+
+  .profile-inputs input {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+  }
+
+  .tasks {
+    list-style: none;
+    margin-top: 30px;
+  }
+
+  .tasks li {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .tasks input {
+    margin-right: 15px;
+    accent-color: #ffd85b;
+  }
+
+  .done-button {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .done-button button {
+    padding: 15px 30px;
+    background: #ffd85b;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .done-button button:hover {
+    background: #ffbf00;
+  }
+
+  .cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+
+  .card {
+    width: 30%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card p {
+    padding: 15px;
+    background: #f5f5f5;
+    text-align: center;
+    color: #333;
+  }
+
+  /* Progress Sidebar */
+  .progress-sidebar {
+    background: #f9f9f9;
+    padding: 30px;
+    border-left: 1px solid #ddd;
+  }
+
+  .progress-sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  .progress-bar {
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 15px 0;
+  }
+
+  .progress-bar div {
+    height: 100%;
+    width: 30%;
+    background: #ffd85b;
+  }
+
+  .stats {
+    margin-top: 30px;
+  }
+
+  .stats p {
+    margin: 15px 0;
+  }
+    /* Your existing styles go here... */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div>
+        <h1>TechNest</h1>
+        <ul>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home"> <a href="#">Home</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/book.png" alt="Guides"> <a href="tra.html">Guides</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/graduation-cap.png" alt="Courses"> <a href="lern.html">Courses</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/conference-call.png" alt="People"> <a href="people.html">People</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/user.png" alt="You"> <a href="preference.html">You</a></li>
+        </ul>
+      </div>
+      <button class="logout">Logout</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1>Welcome aboard!</h1>
+      <p>We are thrilled to welcome you to our team. This app is your go-to place for all important company knowledge and information.</p>
+      <h2>Day 1</h2>
+      <p>Here is your overview of your first-day tasks!</p>
+      <div class="profile-setup">
+        <div class="profile-picture">
+          <img id="profileImage" src="WhatsApp Image 2024-12-23 at 12.06.08_8b953e30.jpg" alt="Profile">
+          <button id="uploadBtn">Upload Photo</button>
+          <!-- Hidden file input for image upload -->
+          <input type="file" id="fileInput" accept="image/*" style="display: none;">
+        </div>
+        <div class="profile-inputs">
+          <label>Work Email</label><br/>
+          <input type="text" placeholder="Work Email" required><br/>
+          <label>Work Phone</label><br/>
+          <input type="text" placeholder="Work Phone" required>
+        </div>
+      </div>
+      <ul class="tasks">
+        <li><input type="checkbox" id="task1" required> Log in to all your accounts and tools</li>
+        <li><input type="checkbox" id="task2" required> Set up your work calendar</li>
+        <li><input type="checkbox" id="task3" required> Reach out to your teammates</li>
+        <li><input type="checkbox" id="task4" required> Visit our training center</li>
+      </ul>
+      <div class="done-button">
+        <button id="doneButton">Done</button>
+      </div>
+    </div>
+
+    <!-- Progress Sidebar -->
+    <div class="progress-sidebar">
+      <h2>Your progress</h2>
+      <div class="progress-bar">
+        <div></div>
+      </div>
+      <ul>
+        <li>✔ Fill out your profile</li>
+        <li>✔ Check out the org chart</li>
+        <li>✔ Finish 5 training courses</li>
+        <li>✔ Fill out your questionnaire</li>
+      </ul>
+      <div class="stats">
+        <h3>Your stats</h3>
+        <p>5 tasks completed</p>
+        <p>10 tasks remaining</p>
+        <p>12 courses remaining</p>
+        <p>4 docs to sign</p>
+        <p>2 workshops to attend</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to handle photo upload and persist the image
+    const profileImage = document.getElementById('profileImage');
+    const fileInput = document.getElementById('fileInput');
+    const uploadBtn = document.getElementById('uploadBtn');
+  
+    // Load saved image from localStorage on page load
+    const savedImage = localStorage.getItem('profileImage');
+    if (savedImage) {
+      profileImage.src = savedImage;
+    }
+  
+    // Trigger the file input when button is clicked
+    uploadBtn.addEventListener('click', function () {
+      fileInput.click();
+    });
+  
+    // Handle file input change event
+    fileInput.addEventListener('change', function (event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const imageData = e.target.result;
+          profileImage.src = imageData; // Update the profile picture
+          localStorage.setItem('profileImage', imageData); // Save the image in localStorage
+        };
+        reader.readAsDataURL(file); // Read the selected file as a data URL
+      }
+    });
+  
+    // Other existing JS code for tasks and logout functionality
+    document.getElementById('doneButton').addEventListener('click', function () {
+      document.getElementById('task1').checked = true;
+      document.getElementById('task2').checked = true;
+      document.getElementById('task3').checked = true;
+      document.getElementById('task4').checked = true;
+  
+      location.href = 'into.html'; // Redirect to your target page
+    });
+  
+    document.querySelector('.logout').addEventListener('click', function () {
+      window.location.href = 'logout.html'; // Redirect to your login page or logout endpoint
+    });
+  </script>
+  
+  
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f5f5;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+      gap: 20px;
+      background: #fff;
+      border-radius: 12px;
+      width: 100vw;
+      height: 100vh;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: #002347;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .sidebar h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .sidebar ul li img {
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #ffd85b;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .sidebar ul li a:hover {
+      color: #fff;
+    }
+
+    .logout {
+      text-align: center;
+      padding: 10px;
+      background: #ffd85b;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .logout:hover {
+      background: #ffbf00;
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 40px;
+      overflow-y: auto;
+    }
+
+    .main-content h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .people-directory {
+      display: none; /* Hidden by default */
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .person {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .person img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .person h3 {
+      font-size: 18px;
+      color: #002347;
+      margin-bottom: 5px;
+    }
+
+    .person p {
+      font-size: 14px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div>
+        <h1>TechNest</h1>
+        <ul>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home"> <a href="welcome.html">Home</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/book.png" alt="Guides"> <a href="tra.html">Guides</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/graduation-cap.png" alt="Courses"> <a href="lern.html">Courses</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/conference-call.png" alt="People"> <a href="#">People</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/user.png" alt="You"> <a href="preference.html">You</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1>Welcome to the Introduction Dashboard</h1>
+      <div class="people-directory" id="peopleDirectory">
+        <div class="person">
+          <img src="w1.jpg" alt="Profile Icon">
+          <h3>Alice</h3>
+          <p>Software Developer</p>
+        </div>
+        <div class="person">
+          <img src="men1.jpg" alt="Profile Icon">
+          <h3>Bob</h3>
+          <p>Product Manager</p>
+        </div>
+        <div class="person">
+          <img src="men2.jpg" alt="Profile Icon">
+          <h3>Charlie</h3>
+          <p>Data Analyst</p>
+        </div>
+        <div class="person">
+          <img src="w2.jpg" alt="Profile Icon">
+          <h3>Diana</h3>
+          <p>UX Designer</p>
+        </div>
+        <div class="person">
+          <img src="w3.jpg" alt="Profile Icon">
+          <h3>June</h3>
+          <p>QA Engineer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPeopleDirectory() {
+      const peopleDirectory = document.getElementById('peopleDirectory');
+      // Toggle visibility
+      peopleDirectory.style.display =
+        peopleDirectory.style.display === 'none' || peopleDirectory.style.display === ''
+          ? 'grid'
+          : 'none';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intrtoduction Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f5f5;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+      gap: 20px;
+      background: #fff;
+      border-radius: 12px;
+      width: 100vw;  /* Full width of viewport */
+      height: 100vh;  /* Full height of viewport */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: #002347;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .sidebar h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .sidebar ul li img {
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #ffd85b;
+      font-weight: bold;
+    }
+
+    .sidebar ul li a:hover {
+      color: #fff;
+    }
+
+    .logout {
+      text-align: center;
+      padding: 10px;
+      background: #ffd85b;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .logout:hover {
+      background: #ffbf00;
+    }
+
+    /* Main Content */
+    .main-content {
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .main-content h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .main-content p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .card {
+      width: 30%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .card p {
+      padding: 10px;
+      background: #f5f5f5;
+      text-align: center;
+      color: #333;
+    }
+
+    /* Section Display */
+    .section-content {
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #f9f9f9;
+    }
+
+    .section-content h2 {
+      margin-bottom: 10px;
+    }
+
+    .section-content p {
+      color: #555;
+    }
+  </style>
+  <script>
+    function showContent(topic) {
+      const content = document.getElementById("section-content");
+      let html = "";
+
+      if (topic === "introduction") {
+        html = `
+          <h2>Introduction to Company</h2>
+          <p>Our company, founded in 2005, has grown to become a recognized leader in delivering innovative solutions across various industries. We pride ourselves on fostering a collaborative and dynamic work environment that encourages creativity and problem-solving. With a focus on excellence and customer satisfaction, our team is dedicated to providing high-quality services and products. As a new member, you will play an integral role in continuing our legacy of success and driving the company's mission forward. Welcome to a culture of growth, learning, and opportunity!
+
+</p>
+        `;
+      } else if (topic === "policies") {
+        html = `
+          <h2>Company Policies and Procedures</h2>
+          <p>Our company maintains a set of clear and comprehensive policies designed to ensure a respectful, safe, and productive workplace. These policies cover important areas such as workplace conduct, performance expectations, anti-discrimination practices, and safety regulations. By adhering to these guidelines, we strive to maintain an environment where all employees feel valued and empowered to do their best work. It is essential to familiarize yourself with these policies to understand your rights and responsibilities, helping you to thrive in our organization.
+
+</p>
+        `;
+      } else if (topic === "tools") {
+        html = `
+          <h2>Tools & Technology</h2>
+          <p>To remain at the forefront of our industry, we rely on cutting-edge tools and technology to streamline communication, enhance productivity, and foster collaboration. We use tools like Jira for project management, Slack for real-time communication, and Zoom for virtual meetings. Additionally, we provide ongoing training to ensure all team members are proficient in using these tools. As part of your onboarding, you will receive resources and guidance on how to get the most out of these technologies, allowing you to integrate smoothly into our digital workflow.</p>
+        `;
+      }
+
+      content.innerHTML = html;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div>
+        <h1>TechNest</h1>
+        <ul>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home"> <a href="welcome.html">Home</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/book.png" alt="Guides"> <a href="tra.html">Guides</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/graduation-cap.png" alt="Courses"> <a href="lern.html">Courses</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/conference-call.png" alt="People"> <a href="people.html">People</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/user.png" alt="You"> <a href="preference.html">You</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1>Welcome aboard!</h1>
+      <p>We are thrilled to welcome you to our team. Click on the sections below to learn more:</p>
+      <div class="cards">
+        <div class="card" onclick="showContent('introduction')">
+          <img src="intro.jpg" alt="Intro">
+          <p>Introduction to Company</p>
+        </div>
+        <div class="card" onclick="showContent('policies')">
+          <img src="policy.jpg" alt="Policies">
+          <p>Company Policies and Procedures</p>
+        </div>
+        <div class="card" onclick="showContent('tools')">
+          <img src="tools.jpg" alt="Tech">
+          <p>Tools & Technology</p>
+        </div>
+      </div>
+
+      <div id="section-content" class="section-content">
+        <!-- Dynamic Content Will Load Here -->
+      </div>
+    </div>
+  </div>
+</body>
+</html>

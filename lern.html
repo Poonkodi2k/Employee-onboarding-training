@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f5f5;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+      gap: 20px;
+      background: #fff;
+      border-radius: 12px;
+      width: 100vw;
+      height: 100vh;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: #002347;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .sidebar ul li img {
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #ffd85b;
+      font-weight: bold;
+    }
+
+    .sidebar ul li a:hover {
+      color: #fff;
+    }
+
+    .logout {
+      text-align: center;
+      padding: 10px;
+      background: #ffd85b;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .logout:hover {
+      background: #ffbf00;
+    }
+
+    /* Main Content */
+    .main {
+      padding: 20px;
+      overflow-y: auto;
+      text-align: center;
+    }
+
+    .main h1 {
+      color: #002347;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .main p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #ffd85b;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+    }
+
+    .card a {
+      text-decoration: none;
+      color: #002347;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .card a:hover {
+      color: #ffd85b;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #ffd85b;
+      color: #002347;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background: #ffbf00;
+    }
+
+    /* Interactive Content */
+    .carousel {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .carousel img {
+      width: 200px;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel img:hover {
+      transform: scale(1.1);
+    }
+
+    .interactive-text {
+      font-size: 18px;
+      color: #555;
+      margin-top: 15px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div>
+        <h1>TechNest</h1>
+        <ul>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home"> <a href="welcome.html">Home</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/book.png" alt="Guides"> <a href="tra.html">Guides</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/graduation-cap.png" alt="Courses"> <a href="#">Courses</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/conference-call.png" alt="People"> <a href="people.html">People</a></li>
+          <li><img src="https://img.icons8.com/ios-filled/50/ffffff/user.png" alt="You"> <a href="preference.html">You</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main" id="home-view">
+      <h1>Welcome to the Learning Hub</h1>
+      <p>Explore various sections to learn about our company, its goals, safety measures, and growth opportunities.</p>
+      <div class="card-grid">
+        <div class="card">
+          <img src="https://img.icons8.com/color/96/000000/document.png" alt="How we work">
+          <h2>How We Work</h2>
+          <a onclick="showDetails('how-we-work', 'How We Work', 'Our work culture fosters collaboration, trust, and excellence. We focus on creative problem-solving and agile workflows to continuously improve.')">Learn More</a>
+        </div>
+        <div class="card">
+          <img src="https://img.icons8.com/color/96/000000/bar-chart.png" alt="Our Goals">
+          <h2>Our Goals</h2>
+          <a onclick="showDetails('our-goals', 'Our Goals', 'Our goal is to make a lasting impact by striving for excellence in every aspect of our work, ensuring that every employee contributes to meaningful change.')">Learn More</a>
+        </div>
+        <div class="card">
+          <img src="https://img.icons8.com/color/96/000000/fire-extinguisher.png" alt="Safety">
+          <h2>Safety at Work</h2>
+          <a onclick="showDetails('safety', 'Safety at Work', 'At TechNest, safety is our top priority. We provide extensive training, have robust safety measures in place, and continuously assess our practices to ensure a secure workplace.')">Learn More</a>
+        </div>
+        <div class="card">
+          <img src="https://img.icons8.com/color/96/000000/plant-under-sun.png" alt="Wellbeing">
+          <h2>Wellbeing</h2>
+          <a onclick="showDetails('wellbeing', 'Wellbeing', 'Employee wellbeing is central to our culture. We offer flexible working hours, mental health support, and initiatives to ensure that every employee is empowered to thrive personally and professionally.')">Learn More</a>
+        </div>
+        <div class="card">
+          <img src="https://img.icons8.com/color/96/000000/goal.png" alt="Growth">
+          <h2>Growth</h2>
+          <a onclick="showDetails('growth', 'Growth', 'We believe in nurturing the growth of our employees. Through skill-building programs, mentorship opportunities, and an open feedback culture, we ensure that every individual has room to grow and succeed.')">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details View -->
+    <div class="main" id="details-view" style="display: none;">
+      <h1 id="details-title"></h1>
+      <p id="details-description"></p>
+      <div class="carousel" id="details-carousel"></div>
+      <div class="interactive-text" id="interactive-text"></div>
+      <button class="back-button" onclick="goBack()">Back</button>
+    </div>
+  </div>
+
+  <script>
+    function showDetails(sectionId, title, description) {
+      document.getElementById('home-view').style.display = 'none';
+      document.getElementById('details-title').innerText = title;
+      document.getElementById('details-description').innerText = description;
+      
+      // Adding interactive content (example images and text)
+
+
+      let interactiveText = document.getElementById('interactive-text');
+      if (sectionId === 'how-we-work') {
+        interactiveText.innerHTML = `
+          <p>Our work culture promotes trust, open communication, and agility. We encourage employees to embrace creative thinking, which is crucial for tackling complex challenges. Our collaborative environment enables us to achieve continuous improvement and drive innovation. We value autonomy in our teams, empowering them to make decisions and take ownership of their work. This leads to increased job satisfaction, productivity, and the ability to adapt quickly in a fast-paced industry.</p>
+          <p>We believe that work should be an opportunity for personal growth, and our culture of transparency ensures that all employees have access to the information they need to make informed decisions. Regular feedback loops help to ensure that our teams remain aligned with company goals and are able to evolve as they acquire new skills. Collaboration is at the heart of everything we do, and by leveraging diverse perspectives, we can overcome challenges and deliver exceptional results.</p>
+          <p>At TechNest, we believe that our work culture is the key to our success. It empowers individuals to thrive in their roles and encourages teams to be innovative and forward-thinking. This results in a dynamic and positive environment that allows us to push boundaries and lead in our field. By continuously improving our work practices, we ensure that we remain at the cutting edge of the industry and that our employees have the tools they need to succeed.</p>
+        `;
+      } else if (sectionId === 'our-goals') {
+        interactiveText.innerHTML = `
+          <p>Our goals at TechNest are driven by a commitment to excellence and a desire to create positive change in the world. We aim to build innovative products and services that exceed customer expectations and drive industry advancements. We believe that success is not just measured by financial growth, but also by the impact we make on society and the environment.</p>
+          <p>One of our key goals is sustainability, and we work tirelessly to reduce our environmental footprint while creating products that are both effective and eco-friendly. We believe that businesses have a responsibility to contribute positively to the communities they serve, and we are committed to supporting initiatives that promote social good.</p>
+          <p>Our focus is on delivering value at every level—whether it's through creating jobs, providing cutting-edge solutions, or fostering a work environment that encourages personal and professional growth. We are dedicated to empowering our employees, customers, and partners to achieve their fullest potential. Every step we take towards our goals is an investment in the future, and we continuously strive to build a legacy of success, innovation, and positive change.</p>
+        `;
+      } else if (sectionId === 'safety') {
+        interactiveText.innerHTML = `
+          <p>Safety at work is our top priority at TechNest. We take every measure to ensure that our employees are protected from harm and that they feel confident in their working environment. Our safety programs are designed to be comprehensive, engaging, and educational, allowing all team members to understand the importance of safety and how to protect themselves and others.</p>
+          <p>We invest in state-of-the-art safety equipment and technology, ensuring that every employee has access to the tools and resources they need to stay safe. In addition to providing physical safety measures, we also focus on mental and emotional well-being, offering support services to help our employees navigate personal challenges.</p>
+          <p>Safety is embedded into every aspect of our company. We provide regular training sessions to ensure that our teams are equipped with the knowledge and skills they need to handle potential risks. Additionally, we conduct ongoing assessments to identify areas for improvement and implement corrective measures as necessary. By prioritizing safety, we create an environment where our employees can focus on their work and thrive without worrying about unnecessary risks.</p>
+        `;
+      } else if (sectionId === 'wellbeing') {
+        interactiveText.innerHTML = `
+          <p>At TechNest, employee wellbeing is central to our culture. We understand that a healthy and happy workforce is the key to success, and we offer a variety of programs and initiatives to support our employees' mental, physical, and emotional health. Our wellbeing programs are designed to promote work-life balance and ensure that every individual has the resources they need to succeed.</p>
+          <p>We offer flexible working hours and remote work options to accommodate different lifestyles and family needs. Our employees have access to a range of wellness services, including gym memberships, mindfulness workshops, and mental health counseling. These services are designed to help our employees manage stress, maintain physical fitness, and improve their overall quality of life.</p>
+          <p>We also encourage a culture of support and camaraderie within our teams. Regular team-building activities and social events provide opportunities for employees to connect and build strong relationships. This fosters a sense of belonging and promotes mental well-being, as our employees feel supported both inside and outside the workplace.</p>
+        `;
+      } else if (sectionId === 'growth') {
+        interactiveText.innerHTML = `
+          <p>At TechNest, growth is a core value that drives everything we do. We believe that every employee should have the opportunity to learn, develop, and achieve their professional goals. Our growth-oriented culture encourages employees to take on new challenges, pursue career advancement, and continuously improve their skills through training and mentorship.</p>
+          <p>We offer a variety of programs to support personal and professional development, including online courses, workshops, and leadership training. Our mentorship program pairs employees with experienced leaders who can provide guidance and support as they navigate their careers. We also offer opportunities for lateral movement within the company, allowing employees to explore different roles and expand their skill sets.</p>
+          <p>Growth is not just about career advancement; it's also about personal development. We encourage our employees to set goals and take ownership of their professional journeys. By creating an environment that supports both career and personal growth, we ensure that our employees are motivated, engaged, and empowered to succeed. As our employees grow, so does our company, and we are committed to fostering a culture that values continuous learning and development.</p>
+        `;
+      }
+
+      document.getElementById('details-view').style.display = 'block';
+    }
+
+    function goBack() {
+      document.getElementById('details-view').style.display = 'none';
+      document.getElementById('home-view').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
